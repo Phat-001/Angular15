@@ -1,0 +1,20 @@
+[33mcommit 571187b5606f0a6771063192a83ce339c4cac165[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Merge: 7b1b11e 7283206
+Author: Phan Văn Phát <65442935+Phat-001@users.noreply.github.com>
+Date:   Sun Apr 30 13:05:59 2023 +0700
+
+    Merge pull request #1 from Phat-001/helloworld
+    
+    hello world
+
+[33mcommit 728320637d56ad049f206fef9fbbbfe9f48519ca[m[33m ([m[1;31morigin/helloworld[m[33m, [m[1;32mhelloworld[m[33m)[m
+Author: phatpack <vanphat899@gmail.com>
+Date:   Sun Apr 30 12:10:40 2023 +0700
+
+    hello world
+
+[33mcommit 7b1b11e22d48c0dad28cbfd1b9da16dcc0dd842f[m
+Author: phatpack <vanphat899@gmail.com>
+Date:   Sat Apr 29 23:07:16 2023 +0700
+
+    initial commit
