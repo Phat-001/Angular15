@@ -1,4 +1,12 @@
-<div class="new">
+<div class="new container">
      <h1>Đây là trang news</h1>
-     <p>content</p>
+     <div>
+          <h4>Sử dụng ngSwitch</h4>
+          <div [ngSwitch]="userLogin">
+               <p *ngSwitchCase="'admin'">admin login</p>
+               <p *ngSwitchCase="'user'">user login</p>
+               <p *ngSwitchCase="'poster'">poster login</p>
+               <p *ngSwitchDefault>please choose login name</p>
+          </div>
+     </div>
 </div>
