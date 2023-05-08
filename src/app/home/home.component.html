@@ -1,1 +1,87 @@
-<p>home works!</p>
+<div class="container">
+  <input [(ngModel)]="name" class="form-control" /> <br />
+  <input [(ngModel)]="age" placeholder="nhập tuổi" /> <br />
+
+  <h2 *ngIf="age < 18">{{ age || 0 }} bạn chưa đủ tuổi</h2>
+  <h2 *ngIf="age >= 18">{{ age }} bạn đã đủ tuổi</h2>
+  <h1>{{ name }} tuổi của bạn là: {{ age }}</h1>
+
+  <div *ngIf="age >= 18; then gia; else tre"></div>
+  <ng-template #tre>Bạn dưới 18</ng-template>
+  <ng-template #gia>Bạn trên 18</ng-template>
+
+  <div style="margin-bottom: 20px">
+    <button (click)="name = 'Phat'" class="btn btn-success">reset name</button>
+  </div>
+
+  <div class="container">
+    <h3 class="text-center">Viet Nam (cascading combobox)</h3>
+    <div class="row">
+      <div class="col-4">
+        <select
+          class="custom-select custom-select-lg mb-3"
+          (change)="handleProvinceSelect($event)"
+        >
+          <option selected>Chọn Tỉnh</option>
+
+          <option *ngFor="let data of vietNamData"  value="{{ data.code }}">
+            {{ data.name }}
+          </option>
+        </select>
+      </div>
+      <div class="col-4">
+        <select class="custom-select custom-select-lg mb-3" (change)="handleDistrictSelect($event)">
+          <option selected>Chọn Quận/Huyện</option>
+          <option *ngFor="let data of districts" value="{{ data.code }}">
+            {{ data.name }}
+          </option>
+        </select>
+      </div>
+      <div class="col-4">
+        <select class="custom-select custom-select-lg mb-3" (change)="handleWardSelect($event)">
+          <option selected>Chọn Phường/Xã</option>
+          <option *ngFor="let data of wards" value="{{data.code}}">
+            {{data.name}}
+          </option>
+        </select>
+      </div>
+    </div>
+
+    <p appHighLight="{{'red'}}">{{provinceName}} <br> {{districtName}}  <br>  {{wardName}}</p>
+  </div>
+
+  <div>
+    <!-- loop array -->
+    <h5>Fruits List</h5>
+    <ul *ngFor="let item of fruits; let i = index">
+      <li>{{ i + 1 }} - {{ item }}</li>
+    </ul>
+  </div>
+
+  <div>
+    <!-- loop object -->
+    <h2>sản phẩm</h2>
+    <table class="items_table">
+      <thead>
+        <tr>
+          <th>stt</th>
+          <th>tên sản phẩm</th>
+          <th>giá bán</th>
+          <th>tình trạng</th>
+          <th>freeship</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let item of items; let i = index">
+        <tr>
+          <td>{{ i + 1 }}</td>
+          <td>{{ item.name | uppercase }}</td>
+          <td>{{ item.price | currency : "USD" : "symbol" }}</td>
+          <td [ngClass]="{ out_stock: item.isInstock === false }">
+            {{ item.isInstock ? "còn hàng" : "hết hàng" }}
+          </td>
+          <td>{{ item.isFreeship | myPipe | lowercase }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

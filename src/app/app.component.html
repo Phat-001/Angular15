@@ -1,4 +1,13 @@
-<h1>Hello world 1234</h1>
-<p>practice git progress</p>
-<app-home></app-home>
-<app-news></app-news>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Welcome to Angular 15</a>
+
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-link" routerLink="/home" >Home</a>
+      <a class="nav-link" routerLink="/news">News</a>
+      <a class="nav-link" routerLink="/form">Form</a>
+    </div>
+  </div>
+</nav>
+
+<router-outlet></router-outlet>
