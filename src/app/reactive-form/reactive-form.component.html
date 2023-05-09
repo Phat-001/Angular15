@@ -1,0 +1,49 @@
+
+<div class="container">
+     <h1>Form</h1>
+     <form [formGroup]="profileForm" (ngSubmit)="onSubmitForm()">
+          <div class="form-group">
+            <label for="exampleInputEmail1">Họ và Tên</label>
+            <div *ngIf="!profileForm.controls.name.valid; then gender_t; else gender_f"></div>
+               <ng-template #gender_t><label style="color: red">*</label></ng-template>
+               <ng-template #gender_f><label style="color: green">&#x2714;</label></ng-template>
+            <input type="text" class="form-control" formControlName="name">
+            <label *ngIf="!profileForm.controls.name.valid" style="color: red">Vui lòng nhập ít nhất 6 kí tự</label>
+          </div>
+
+          <div class="form-group">
+            <label for="exampleInputPassword1">Tuổi</label>
+            <div *ngIf="!profileForm.controls.age.valid; then gender_t; else gender_f"></div>
+               <ng-template #gender_t><label style="color: red">*</label></ng-template>
+               <ng-template #gender_f><label style="color: green">&#x2714;</label></ng-template>
+            <input type="text" class="form-control" formControlName="age">
+            <label *ngIf="!profileForm.controls.age.valid" style="color: red">Vui lòng nhập tuổi</label>
+          </div>
+          
+          <div class="form-group">
+               <label for="exampleInputPassword1" >Giới tính </label> 
+               <div *ngIf="!profileForm.controls.gender.valid; then gender_t; else gender_f"></div>
+               <ng-template #gender_t><label style="color: red">*</label></ng-template>
+               <ng-template #gender_f><label style="color: green">&#x2714;</label></ng-template>
+               <br>
+
+               <input type="radio" id="gender-male" formControlName="gender" value="male"> <label for="gender-male">Nam</label>
+               <input type="radio" id="gender-female" formControlName="gender" value="female"> <label for="gender-female">Nữ</label>
+               
+          </div>
+
+          <div formArrayName="aliases">
+               <h2>Sở thích</h2>
+               <button type="button" (click)="addAlias()">+ Add another alias</button>
+             
+               <div *ngFor="let alias of aliases.controls; let i=index">
+                 <!-- The repeated alias template -->
+                 <label for="alias-{{ i }}">Alias:</label>
+                 <input id="alias-{{ i }}" type="text" [formControlName]="i">
+               </div>
+          </div>
+
+          
+          <button type="submit" class="btn btn-success" [disabled]="!profileForm.valid">Submit</button>
+     </form>
+</div>

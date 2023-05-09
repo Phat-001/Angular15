@@ -1,0 +1,15 @@
+<div class="container">
+     <h1>Parent component</h1>
+     <button (click)="handleSendMoney()">Give money for my son</button>
+     <h3>{{message}}</h3>
+     <br>
+     <br>
+     <br>
+     <app-child #john name="John" (childCalling)="runParent($event)"></app-child>
+     <br>
+     <app-child #jack name="Jack" (childCalling)="runParent($event)"></app-child>
+     <br>
+     <app-child #rockLee name="Rock Lee" (childCalling)="runParent($event)"></app-child>
+    
+     
+</div>
