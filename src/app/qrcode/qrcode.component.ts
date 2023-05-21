@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ApiService } from '../Services/api.service';
+
 
 @Component({
   selector: 'app-qrcode',
@@ -7,6 +9,6 @@ import { Component } from '@angular/core';
 })
 export class QRCodeComponent {
   public qrText:string = 'https://angular.io/guide/form-validation';
-
+  constructor (private api: ApiService){}
 
 }
