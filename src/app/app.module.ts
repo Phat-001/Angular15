@@ -17,6 +17,9 @@ import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 import { QRCodeComponent } from './qrcode/qrcode.component';
 import { ParentComponent } from './parent/parent.component';
 import { ChildComponent } from './child/child.component';
+import { MaterialModule } from './material/material.module';
+import {MatMenuModule} from '@angular/material/menu';
+import { ApiService } from './Services/api.service';
 
 @NgModule({
   declarations: [
@@ -30,7 +33,7 @@ import { ChildComponent } from './child/child.component';
     ReactiveFormComponent,
     QRCodeComponent,
     ParentComponent,
-    ChildComponent
+    ChildComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,9 +41,11 @@ import { ChildComponent } from './child/child.component';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    QRCodeModule
+    QRCodeModule,
+    MaterialModule,
+    MatMenuModule
   ],
-  providers: [],
+  providers: [ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

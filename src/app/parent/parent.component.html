@@ -1,15 +1,57 @@
 <div class="container">
      <h1>Parent component</h1>
-     <button (click)="handleSendMoney()">Give money for my son</button>
+     <button mat-raised-button color="primary" (click)="handleSendMoney()">Give money for my son</button>
+     <button mat-raised-button color="warn" (click)="handleSetCount()">onChange</button>
      <h3>{{message}}</h3>
      <br>
      <br>
      <br>
-     <app-child #john name="John" (childCalling)="runParent($event)"></app-child>
+     <app-child #john name="John" countNumber="{{countNumber}}" color="warn" (childCalling)="runParent($event)"></app-child>
      <br>
-     <app-child #jack name="Jack" (childCalling)="runParent($event)"></app-child>
+     <app-child #jack name="Jack" countNumber="{{countNumber}}" color="accent" (childCalling)="runParent($event)"></app-child>
      <br>
-     <app-child #rockLee name="Rock Lee" (childCalling)="runParent($event)"></app-child>
-    
-     
+     <app-child #rockLee name="Rock Lee" countNumber="{{countNumber}}" color="primary" (childCalling)="runParent($event)"></app-child>
+
+
+     <div>
+          <h3>-----------------Button material-----------------</h3>
+          <mat-button-toggle #isClick (change)="handleToggleButton()">Click me</mat-button-toggle>
+          {{isClick.checked}}
+          <br>
+          <h5>toggle button group (radio)</h5>
+          <mat-button-toggle-group #buttonToggleGroup="matButtonToggleGroup">
+               <mat-button-toggle value="angular">Angular</mat-button-toggle>
+               <mat-button-toggle value="react">React</mat-button-toggle>
+               <mat-button-toggle value="vue">Vue</mat-button-toggle>
+          </mat-button-toggle-group>
+          {{buttonToggleGroup.value}}
+          <h5>toggle button group (checkbox)</h5>
+          <mat-button-toggle-group #buttonToggleGroup2="matButtonToggleGroup" multiple>
+               <mat-button-toggle value="angular">Angular</mat-button-toggle>
+               <mat-button-toggle value="react">React</mat-button-toggle>
+               <mat-button-toggle value="vue">Vue</mat-button-toggle>
+          </mat-button-toggle-group>
+          {{buttonToggleGroup2.value}}
+          <h3>-----------------Icon material-----------------</h3>
+          <mat-icon color="primary">grade</mat-icon>
+          <mat-icon color="warn">home</mat-icon>
+          <mat-icon color="accent">add</mat-icon>
+          <mat-icon>thumb-up</mat-icon>
+          <h3>-----------------Badge material-----------------</h3>
+          <span matBadge="5" matColor="accent">Notification</span>
+          <br>
+          <span matBadge="4" matColor="warn" matBadgeOverlap="false" matBadgeSize="small">Notification</span>
+          <br>
+          <span [matBadge]="notificationNumber" [matBadgeHidden]="notificationNumber === 0" matColor="accent" matBadgeOverlap="false">Notification</span>
+          <h3>-----------------Progress Spinner material-----------------</h3>
+          <mat-spinner *ngIf="isIndeterminate"></mat-spinner>
+          <button mat-raised-button (click)="runSpinner()">Load Data</button>
+          <h3>-----------------Menu material-----------------</h3>
+          <button mat-button [matMenuTriggerFor]="menu">Menu</button>
+          <mat-menu #menu="matMenu">
+          <button mat-menu-item>Item 1</button>
+          <button mat-menu-item>Item 2</button>
+          </mat-menu>
+     </div>
 </div>
+<div style="display: block; height: 300px; width: 1px;"></div>
